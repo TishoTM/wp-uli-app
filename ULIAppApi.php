@@ -246,7 +246,6 @@ class ULIAppApi {
 		$user_preferences = $this->getUserPreferences($user_id);
 		$post_user_preferences = array();
 
-		// print_r($user_preferences); exit;
 
 		foreach ($user_preferences as $key => $obj)
 		{
@@ -396,8 +395,6 @@ class ULIAppApi {
 			$return[$object['emo_mtp_key']] = $object;
 		}
 
-		//dd($return);
-
 		return $return;
 	}
 
@@ -436,10 +433,5 @@ class ULIAppApi {
 		$this->code = $result['response']['code'];
 		return false;
 	}
-
-
-
-
 }
-
 ?>

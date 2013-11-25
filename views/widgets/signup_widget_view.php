@@ -38,10 +38,6 @@ $signed_up = $uli_app->checkPreference($topic['key']);
 
 	</form>
 
-
-	<!-- <a href="#" class="preferences_test">all preferences</a> -->
-
-
 	<div class="uli_app_signup_dialog" title="Quick SignUp" style="display:none; padding:50px;"></div>
 
 

@@ -7,7 +7,7 @@
 // - profile
 // - password reset url
 // --------------------------------------------
-$uli_app_config['app_url'] = 'http://my.ecommerce-app.tld/';
+$uli_app_config['app_url'] = '';
 
 
 
@@ -15,7 +15,7 @@ $uli_app_config['app_url'] = 'http://my.ecommerce-app.tld/';
 // THE URL OF THE ULI API
 // All the data is coming from NetForum via the API
 // --------------------------------------------
-$uli_app_config['api_url'] = 'https://api-test.uli.org/1.2/';
+$uli_app_config['api_url'] = '';
 
 
 
@@ -23,7 +23,7 @@ $uli_app_config['api_url'] = 'https://api-test.uli.org/1.2/';
 // THE MAIN DOMAIN OF THE ENVIRONMENT
 // the login cookies are set with that domain
 // --------------------------------------------
-$uli_app_config['cookie_main_domain'] = '.ecommerce-app.tld';
+$uli_app_config['cookie_main_domain'] = '.uli.org';
 
 // --------------------------------------------
 

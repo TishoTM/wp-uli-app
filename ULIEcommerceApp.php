@@ -91,10 +91,6 @@ class ULIEcommerceApp {
 
 		}
 
-		// print_r($this->user);
-
-
-
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
 
 		// THE AJAX ADD ACTIONS
@@ -118,8 +114,6 @@ class ULIEcommerceApp {
 		add_action( 'wp_ajax_nopriv_uli_save_preferences', array($this, 'updatePreferences') );
 
 
-
-		// exit;
 
 	}
 
@@ -305,7 +299,7 @@ class ULIEcommerceApp {
 				}
 			}
 			
-			// process with the sign up
+			// proceed with the sign up
 
 			if($topic)
 			{
@@ -395,7 +389,7 @@ class ULIEcommerceApp {
 			}
 
 
-			// process with the sign up
+			// proceed with the sign up
 
 			if($topic)
 			{
