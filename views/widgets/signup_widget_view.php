@@ -27,7 +27,7 @@ $signed_up = $uli_app->checkPreference($topic['key']);
 	<form action="#" class="uli-signup-form" method="post">
 
 
-		<?php $user_email = $uli_app->is_logged() ? $uli_app->user['email'] : ''; ?>
+		<?php $user_email = $uli_app->is_logged() ? $uli_app->user()['email'] : ''; ?>
 
 		<input type="text" name="uli_app_email" placeholder="E-mail" value="<?=$user_email; ?>" />
 

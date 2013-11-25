@@ -23,17 +23,19 @@ class ULIEcommerceApp {
 	protected 	$api;
 	
 	// user information
-	public 		$user;
+	private 	$user;
 
 	// the main domain for the cookie
 	public 		$cookie_main_domain;
-	// public 		$cookie_main_domain = '.uli.org';
 
 	// the plugin option from the Admin section
 	public 		$topic;
 
 	// if the user is logged in
 	private 	$logged_in = false;
+
+	// if the user is with member status
+	private 	$is_member = false;
 
 	// the current url
 	public 		$current_url;
@@ -77,8 +79,14 @@ class ULIEcommerceApp {
 		// check if the user is logged in
 		if( $user = $this->api->getUser() )
 		{
+
 			$this->user = $user;
 			$this->logged_in = true;
+
+			if(isset($user['member']) && $user['member'])
+			{
+				$this->is_member = true;
+			}
 
 
 			$this->checkPreference($this->topic['key']);
@@ -523,7 +531,8 @@ class ULIEcommerceApp {
 	*/
 	public function user()
 	{
-		return $this->api->getUser();
+		return $this->user;
+		// return $this->api->getUser();
 	}
 
 
@@ -533,6 +542,14 @@ class ULIEcommerceApp {
 	public function is_logged()
 	{
 		return $this->logged_in;
+	}
+
+	/**
+	 * @return boolean if the user is a member
+	 */
+	public function is_member()
+	{
+		return $this->is_member;
 	}
 
 	/**

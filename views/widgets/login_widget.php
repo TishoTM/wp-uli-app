@@ -4,14 +4,14 @@
 
 global $uli_app;
 
-if( $uli_app->is_logged() && $user = $uli_app->user ): ?>
+if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 	
 	
 	<a href="<?=$uli_app->logout_url; ?>?redirect_url=<?=urlencode($uli_app->current_url);?>" title="Logout">Logout</a>
 
 	|
 
-    Wecome <?=$uli_app->user['name']; ?>
+    Wecome <?=$user['name']; ?>
 
     |
 
