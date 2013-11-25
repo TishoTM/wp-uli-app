@@ -16,6 +16,10 @@ if(isset($current_topic) && ! empty($current_topic))
 {
 	$topic = $current_topic;
 }
+else
+{
+	$topic = $uli_app->topic;
+}
 
 $signed_up = $uli_app->checkPreference($topic['key']);
 
