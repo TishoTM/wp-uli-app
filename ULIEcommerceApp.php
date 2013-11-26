@@ -399,10 +399,16 @@ class ULIEcommerceApp {
 
 			// proceed with the sign up
 
+			$lookup_preferences = $this->api->getAllPreferences();
+			$update_preferences = array();
+			foreach ($lookup_preferences as $value) {
+				$update_preferences[] = $value['value'];
+			} 
+
 			if($topic)
 			{
 
-				$result = $this->api->saveUserPreferences($login_result['account']['id'], array($topic), array($topic));
+				$result = $this->api->saveUserPreferences($login_result['account']['id'], $update_preferences, array($topic));
 
 				if($result)
 				{
@@ -423,6 +429,9 @@ class ULIEcommerceApp {
 			}
 			else
 			{
+				// remove all the preferences assigned by NF by default
+				$this->api->saveUserPreferences($login_result['account']['id'], $update_preferences, array());
+
 				$response = array(
 	    			'action' => 'options',
 	    			'user' => $login_result['account'],
