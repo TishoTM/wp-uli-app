@@ -7,15 +7,15 @@ global $uli_app;
 if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 	
 	
-	<a href="<?=$uli_app->logout_url; ?>?redirect_url=<?=urlencode($uli_app->current_url);?>" title="Logout">Logout</a>
+	<a href="<?php echo $uli_app->logout_url; ?>?redirect_url=<?php echo urlencode($uli_app->current_url);?>" title="Logout">Logout</a>
 
 	|
 
-    Wecome <?=$user['name']; ?>
+    Wecome <?php echo $user['name']; ?>
 
     |
 
-    <a href="<?=$uli_app->profile_url; ?>" title="Manage Your Profile">Manage Your Profile</a>
+    <a href="<?php echo $uli_app->profile_url; ?>" title="Manage Your Profile">Manage Your Profile</a>
 
     
 
@@ -37,7 +37,7 @@ if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 
 	<br />
 
-	<form action="<?= $uli_app->current_url; ?>" id="uli_app_login_form" class="validate_form" method="post" enctype="multipart/form-data">
+	<form action="<?php echo  $uli_app->current_url; ?>" id="uli_app_login_form" class="validate_form" method="post" enctype="multipart/form-data">
 
 		<label for="uli_app_email">Email</label><br />
 		<input type="text" name="uli_app_email" id="uli_app_email" class="mp_textbox" required />
@@ -51,7 +51,7 @@ if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 
 		<input type="hidden" value="uli_app_login" name="action" />
 
-		<a href="<?= $uli_app->password_reset_url; ?>" target="_blanc">Can't access your account?</a>
+		<a href="<?php echo  $uli_app->password_reset_url; ?>" target="_blanc">Can't access your account?</a>
 
 		<br /><br />
 
@@ -72,7 +72,7 @@ if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 <script id="uli-app-login-success-template" type="text/x-handlebars-template">	
 
 	
-	<a href="<?=$uli_app->logout_url; ?>?redirect_url=<?=urlencode($uli_app->current_url);?>">Logout</a>
+	<a href="<?php echo $uli_app->logout_url; ?>?redirect_url=<?php echo urlencode($uli_app->current_url);?>">Logout</a>
 
 	|
 
@@ -80,7 +80,7 @@ if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 
     |
 
-    <a href="<?=$uli_app->profile_url; ?>">Manage Your Profile</a>
+    <a href="<?php echo $uli_app->profile_url; ?>">Manage Your Profile</a>
 
 	
 </script>

@@ -14,7 +14,7 @@ else {
 
 
 <label for="<?php echo $this->get_field_id( 'topic_key' ); ?>"><?php _e( 'Topic:' ); ?></label> 
-<select name="<?=$this->get_field_name( 'topic_key' ); ?>" id="<?=$this->get_field_id( 'topic_key' ); ?>">
+<select name="<?php echo $this->get_field_name( 'topic_key' ); ?>" id="<?php echo $this->get_field_id( 'topic_key' ); ?>">
 
 
 	<option value="0">Default Topic form the settings</option>
@@ -31,7 +31,7 @@ else {
 
 	?>
 		
-	<option value="<?=$preference['value']; ?>" <?=$selected; ?>><?=$preference['option']; ?></option>
+	<option value="<?php echo $preference['value']; ?>" <?php echo $selected; ?>><?php echo $preference['option']; ?></option>
 
 	<?php endforeach; ?>
 
@@ -40,7 +40,7 @@ else {
 
 
 
-<input type="hidden" name="<?=$this->get_field_name( 'topic_title' ); ?>" id="<?=$this->get_field_id( 'topic_title' ); ?>" value="<?=isset($instance['topic_title']) ? $instance['topic_title'] : ''; ?>" />
+<input type="hidden" name="<?php echo $this->get_field_name( 'topic_title' ); ?>" id="<?php echo $this->get_field_id( 'topic_title' ); ?>" value="<?php echo isset($instance['topic_title']) ? $instance['topic_title'] : ''; ?>" />
 
 
 <script>
@@ -48,13 +48,13 @@ else {
 
 	jQuery(function(){
 
-		jQuery("#<?=$this->get_field_id( 'topic_key' ); ?>").on('change', function(){
+		jQuery("#<?php echo $this->get_field_id( 'topic_key' ); ?>").on('change', function(){
 
 			$val = jQuery(":selected", this).text();
 
 			if($val)
 			{
-				jQuery("#<?=$this->get_field_id( 'topic_title' ); ?>").val($val);
+				jQuery("#<?php echo $this->get_field_id( 'topic_title' ); ?>").val($val);
 			}
 
 		});

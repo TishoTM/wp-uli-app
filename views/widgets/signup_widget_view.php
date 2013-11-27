@@ -3,7 +3,7 @@
 
 <?php if( ! isset($instance) && $widget_title): ?>
 
-	<h3><?=$widget_title; ?></h3>
+	<h3><?php echo $widget_title; ?></h3>
 
 <?php endif; ?>
 
@@ -26,16 +26,16 @@ $signed_up = $uli_app->checkPreference($topic['key']);
 ?>
 
 
-<div id="uli-signup-wrapper-<?=rand(); ?>" class="uli-signup-wrapper">
+<div id="uli-signup-wrapper-<?php echo rand(); ?>" class="uli-signup-wrapper">
 
 	<form action="#" class="uli-signup-form" method="post">
 
 
 		<?php $user_email = $uli_app->is_logged() ? $uli_app->user()['email'] : ''; ?>
 
-		<input type="text" name="uli_app_email" placeholder="E-mail" value="<?=$user_email; ?>" />
+		<input type="text" name="uli_app_email" placeholder="E-mail" value="<?php echo $user_email; ?>" />
 
-		<input type="hidden" name="uli_app_topic" value="<?=$topic['key']; ?>" />
+		<input type="hidden" name="uli_app_topic" value="<?php echo $topic['key']; ?>" />
 		<input type="hidden" name="action" value="signup_form" />
 
 		<button type="submit" class="uli_app_button" name="signup_submit">Sign up</button>
@@ -71,11 +71,11 @@ $signed_up = $uli_app->checkPreference($topic['key']);
 
 		<input type="hidden" name="action" value="uli_login_form" />
 
-		<input type="hidden" name="uli_app_topic" value="<?=$topic['key']; ?>" />
+		<input type="hidden" name="uli_app_topic" value="<?php echo $topic['key']; ?>" />
 
 		<br />
 
-		<a href="<?= $uli_app->password_reset_url; ?>" target="_blanc">Can't access your account?</a>
+		<a href="<?php echo  $uli_app->password_reset_url; ?>" target="_blanc">Can't access your account?</a>
 
 		<br /><br />
 
@@ -96,7 +96,7 @@ $signed_up = $uli_app->checkPreference($topic['key']);
 
 	<h4>Thank you for your interest in ULI</h4>
 
-	You are now subscribed to receive <b><?=$topic['title']; ?></b> at {{email}}.
+	You are now subscribed to receive <b><?php echo $topic['title']; ?></b> at {{email}}.
 
 	
 	<br /><br />
@@ -113,7 +113,7 @@ $signed_up = $uli_app->checkPreference($topic['key']);
 
 	<h4>Thank you for your interest in ULI</h4>
 
-	{{email}} is already subscribed to receive <b><?=$topic['title']; ?></b>.
+	{{email}} is already subscribed to receive <b><?php echo $topic['title']; ?></b>.
 
 	<br />If you are not receiving these updates, please contact ULI Customer Service at [contact info].
 
@@ -179,7 +179,7 @@ $signed_up = $uli_app->checkPreference($topic['key']);
 		<br />
 
 		<input type="hidden" name="action" value="uli_create_account_form" />
-		<input type="hidden" name="uli_app_topic" value="<?=$topic['key']; ?>" />
+		<input type="hidden" name="uli_app_topic" value="<?php echo $topic['key']; ?>" />
 
 		<br />
 
