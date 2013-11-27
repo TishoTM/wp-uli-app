@@ -15,7 +15,7 @@ if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 
     |
 
-    <a href="<?php echo $uli_app->profile_url; ?>" title="Manage Your Profile">Manage Your Profile</a>
+    <a href="<?php echo $uli_app->profile_url; ?>" title="Manage Your Profile" target="_blank">Manage Your Profile</a>
 
     
 
@@ -51,7 +51,7 @@ if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 
 		<input type="hidden" value="uli_app_login" name="action" />
 
-		<a href="<?php echo  $uli_app->password_reset_url; ?>" target="_blanc">Can't access your account?</a>
+		<a href="<?php echo  $uli_app->password_reset_url; ?>" target="_blank">Can't access your account?</a>
 
 		<br /><br />
 
@@ -80,7 +80,7 @@ if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 
     |
 
-    <a href="<?php echo $uli_app->profile_url; ?>">Manage Your Profile</a>
+    <a href="<?php echo $uli_app->profile_url; ?>" title="Manage Your Profile" target="_blank">Manage Your Profile</a>
 
 	
 </script>
