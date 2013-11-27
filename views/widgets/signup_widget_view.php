@@ -75,7 +75,7 @@ $signed_up = $uli_app->checkPreference($topic['key']);
 
 		<br />
 
-		<a href="<?php echo  $uli_app->password_reset_url; ?>" target="_blanc">Can't access your account?</a>
+		<a href="<?php echo  $uli_app->password_reset_url; ?>" target="_blank">Can't access your account?</a>
 
 		<br /><br />
 
