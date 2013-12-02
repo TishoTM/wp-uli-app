@@ -97,7 +97,7 @@ jQuery(function($){
 				{
 					tpl = ajax_get_preferences_view();
 				}
-				else if(data.action == 'success')
+				else if(data.action == 'success' || data.action == 'exists')
 				{
 
 					var source   = $("#uli-signup-"+data.action+"-template", "#"+uli_app_ajax.widget_id).html();

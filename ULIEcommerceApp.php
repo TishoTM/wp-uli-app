@@ -209,20 +209,32 @@ class ULIEcommerceApp {
 	    	if($topic)
 	    	{
 
-		    	$result = $this->api->saveUserPreferences($this->user['id'], array($topic), array($topic));
-		    	
-		    	if($result)
-				{
-					$response = array(
-		    			'action' => 'success',
-		    		);
+	    		// check if the user is already signed up
+	    		if($this->checkPreference($topic))
+	    		{
+	    			$response = array(
+	    				'action' => 'exists',
+	    			);
+	    		}
+	    		else
+	    		{
 
-				}
-				else
-				{
-					$response = array(
-		    			'action' => 'error',
-		    		);
+			    	$result = $this->api->saveUserPreferences($this->user['id'], array($topic), array($topic));
+			    	
+			    	if($result)
+					{
+						$response = array(
+			    			'action' => 'success',
+			    		);
+
+					}
+					else
+					{
+						$response = array(
+			    			'action' => 'error',
+			    		);
+					}
+
 				}
 
 			}
@@ -296,6 +308,10 @@ class ULIEcommerceApp {
 
 		if($login_result = $this->api->loginUser($login_data))
 		{
+
+			$this->user = $login_result['account'];
+			$this->logged_in = true;
+
 			setcookie($login_result['session']['key'], $login_result['session']['value'], 0, '/', $this->cookie_main_domain);
 			
 			// create a remember cookie
@@ -312,23 +328,35 @@ class ULIEcommerceApp {
 			if($topic)
 			{
 
-				$result = $this->api->saveUserPreferences($login_result['account']['id'], array($topic), array($topic));
+				// check if the user is already signed up
+	    		if($this->checkPreference($topic))
+	    		{
+	    			$response = array(
+	    				'action' => 'exists',
+	    				'user' => $login_result['account'],
+	    			);
+	    		}
+	    		else
+	    		{
 
-				if($result)
-				{
-					$response = array(
-		    			'action' => 'success',
-		    			'user' => $login_result['account'],
-		    		);
-				}
-				else
-				{
-					$response = array(
-		    			'action' => 'error',
-		    			'message' => $this->api->message,
-		    			'code' => $this->api->code,
-		    		);
+					$result = $this->api->saveUserPreferences($login_result['account']['id'], array($topic), array($topic));
 
+					if($result)
+					{
+						$response = array(
+			    			'action' => 'success',
+			    			'user' => $login_result['account'],
+			    		);
+					}
+					else
+					{
+						$response = array(
+			    			'action' => 'error',
+			    			'message' => $this->api->message,
+			    			'code' => $this->api->code,
+			    		);
+
+					}
 				}
 			}
 			else
@@ -406,7 +434,7 @@ class ULIEcommerceApp {
 			} 
 
 			if($topic)
-			{
+			{				
 
 				$result = $this->api->saveUserPreferences($login_result['account']['id'], $update_preferences, array($topic));
 
@@ -426,6 +454,7 @@ class ULIEcommerceApp {
 		    		);
 
 				}
+				
 			}
 			else
 			{
@@ -629,10 +658,24 @@ class ULIEcommerceApp {
 		if($topic_key)
 		{
 			$current_topic['key'] = $topic_key;
-		}
-		if($topic_title)
-		{
-			$current_topic['title'] = $topic_title;
+
+			if($topic_title)
+			{
+				$current_topic['title'] = $topic_title;
+			}
+			else
+			{
+				$preferences = $this->api->getAllPreferences();
+
+				foreach ($preferences as $item)
+				{
+					if($item['value'] == $topic_key)
+					{
+						$current_topic['title'] = $item['option'];
+						break;
+					}
+				}
+			}
 		}
 
 		ob_start();

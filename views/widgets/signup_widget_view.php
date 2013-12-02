@@ -115,11 +115,18 @@ $signed_up = $uli_app->checkPreference($topic['key']);
 
 	{{email}} is already subscribed to receive <b><?php echo $topic['title']; ?></b>.
 
-	<br />If you are not receiving these updates, please contact ULI Customer Service at [contact info].
-
-	Manage your preferences for other alerts and updates from ULI. 
-
 	<br /><br />
+	
+	If you are not receiving these updates, please contact ULI Customer Service at <br /><br />
+
+	customerservice@uli.org <br /><br />
+
+	United States: 800-321-5011 <br />
+	Europe: +44 207 487 9577 <br />
+	Everywhere else: +1 410 626 7500 <br />
+
+
+	<br />
 
 	<a href="#" class="uli_signup_all_preferences">Manage all my alerts</a>
 
