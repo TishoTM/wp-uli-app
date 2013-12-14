@@ -537,8 +537,12 @@ class ULIEcommerceApp {
 			$update_preferences[] = $value['value'];
 		}
 		
-		$selected_preferences = $_POST['uli_selected_preferences'];
-
+		$selected_preferences = array();
+		if(isset($_POST['uli_selected_preferences']))
+		{
+			$selected_preferences = $_POST['uli_selected_preferences'];
+		}
+		
 		$result = $this->api->saveUserPreferences($this->user['id'], $update_preferences, $selected_preferences);
 
 
