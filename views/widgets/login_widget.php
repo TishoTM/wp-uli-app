@@ -6,18 +6,8 @@ global $uli_app;
 
 if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 	
-	
-	<a href="<?php echo $uli_app->logout_url; ?>?redirect_url=<?php echo urlencode($uli_app->current_url);?>" title="Logout">Logout</a>
+	<a href="<?php echo $uli_app->logout_url; ?>?redirect_url=<?php echo urlencode($uli_app->current_url);?>" title="Logout">Logout</a> | <span style="padding:0 10px;">Welcome <?php echo $user['name']; ?></span> | <a href="<?php echo $uli_app->profile_url; ?>" title="Manage Your Profile" target="_blank">Manage Your Profile</a>
 
-	|
-
-    Wecome <?php echo $user['name']; ?>
-
-    |
-
-    <a href="<?php echo $uli_app->profile_url; ?>" title="Manage Your Profile" target="_blank">Manage Your Profile</a>
-
-    
 
 <?php else: ?>
 
@@ -31,36 +21,26 @@ if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 
 </div>
 
-<div id="uli_app_dialog" title="Login" style="padding:50px; display:none;">
+<div id="uli_app_dialog" title="Login" style="padding:38px 60px; display:none;">
 
 	<h3>Login to ULI</h3>
 
-	<br />
-
 	<form action="<?php echo  $uli_app->current_url; ?>" id="uli_app_login_form" class="validate_form" method="post" enctype="multipart/form-data">
 
-		<label for="uli_app_email">Email</label><br />
+		<label for="uli_app_email">Email</label>
 		<input type="text" name="uli_app_email" id="uli_app_email" class="mp_textbox" required />
-		
-		<br />
 
-		<label for="uli_app_password">Password</label><br />
+		<label for="uli_app_password">Password</label>
 		<input type="password" name="uli_app_password" id="uli_app_password" class="mp_textbox" required />
-		
-		<br />
 
 		<input type="hidden" value="uli_app_login" name="action" />
 
-		<a href="<?php echo  $uli_app->password_reset_url; ?>" target="_blank">Can't access your account?</a>
-
-		<br /><br />
+		<a id="cant-access" href="<?php echo  $uli_app->password_reset_url; ?>" target="_blank">Can't access your account?</a>
 
 		<input type="checkbox" id="uli_app_remember" name="uli_app_remember" value="1" />
 		<label for="uli_app_remember">Stay logged in</label>
 
-		<br /><br />
-
-		<button type="submit" class="uli_app_button" name="uli_app_login_btn">login</button>
+		<button id="uli_app_login_btn" type="submit" class="uli_app_button" name="uli_app_login_btn">login</button>
 
 		<div class="uli_app_result_message"></div>
 
@@ -80,7 +60,7 @@ if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 
     |
 
-    <a href="<?php echo $uli_app->profile_url; ?>" title="Manage Your Profile" target="_blank">Manage Your Profile</a>
+    <a href="<?php echo $uli_app->profile_url; ?>" target="_blank">Manage Your Profile</a>
 
 	
 </script>

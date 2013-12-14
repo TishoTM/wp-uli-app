@@ -1,20 +1,109 @@
-input.error{
+input.error {
 	border:solid 1px #ff0000;
 	color:#ff0000;
 }
-div.error{
+div.error {
 	color:#ff0000;
 }
-
-.loading_gif{
-
-}
-
 
 .uli_app_button.loading:after {
 	content: url('../img/ajax-loader.gif');
 }
-
-.hidden{
+.hidden {
 	display: none;
+}
+#uli_app_dialog, .uli_app_signup_dialog {
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+}
+#uli_app_dialog h3, .uli_app_signup_dialog h3 {
+	color: #78A22F;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+.Foundation #uli_app_dialog h3, .Foundation .uli_app_signup_dialog h3 {
+	color: #51453C;
+}
+#uli_app_login_form label, #uli-create-account-form label {
+	display: block;
+	width: 80%;
+}
+#uli_app_login_form input[type="text"], #uli_app_login_form input[type="password"], #uli-create-account-form input[type="text"], #uli-create-account-form input[type="password"], #uli-create-account-form input[type="email"] {
+	padding: 3px !important;
+	margin-bottom: 10px;
+	width: 100%;
+}
+a#cant-access, a.uli_signup_all_preferences {
+	color: #78A22F;
+	display: block;
+}
+.Foundation a#cant-access, .Foundation a.uli_signup_all_preferences {
+	color: #017573;
+}
+#uli_app_remember {
+	float: left;
+	margin-left: 0;
+}
+#uli_app_login_btn, #uli-create-account-form button.uli_app_button, button.dialog_ok_btn, #uli_preferences_form button.uli_app_button {
+	display: block;
+	padding: 0 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	background: #5c8f04; /* Old browsers */
+	background: -moz-linear-gradient(top,  #bbd196 0%, #5c8f04 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bbd196), color-stop(100%,#5c8f04)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #bbd196 0%,#5c8f04 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #bbd196 0%,#5c8f04 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #bbd196 0%,#5c8f04 100%); /* IE10+ */
+	background: linear-gradient(top,  #bbd196 0%,#5c8f04 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd196', endColorstr='#5c8f04',GradientType=0 ); /* IE6-9 */
+	text-align: center;
+	height: 34px;
+	line-height: 34px;
+	border: none;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	margin-top: 18px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.uli-signup-form input[type="text"] {
+	width: 63%;
+	float: left;
+	display: block;
+	font-size: 14px;
+	height: 22px;
+	line-height: 22px;
+}
+.home .uli-signup-form input[type="text"] {
+	width: 70%;
+}
+.uli-signup-form button.uli_app_button {
+	background: #78A22F;
+	border: none;
+	color: #fff;
+	width: 32%;
+	float: left;
+	line-height: 30px;
+	height: 30px;
+	margin-left: 1%;
+	padding: 0 1%;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: Helvetica, Arial, sans-serif;
+	cursor: pointer;
+}
+.home .uli-signup-form button.uli_app_button {
+	width: 25%;
+}
+.Foundation .uli-signup-form button.uli_app_button {
+	background: #4C7088;
+}
+ul.uli_preferences_list {
+	margin: 0;
+	padding-right: 30px;
+	list-style: none;
 }

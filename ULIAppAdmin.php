@@ -15,7 +15,7 @@ class ULIAppAdmin{
 
 	public function plugin_admin_menu()
 	{
-		add_options_page( 'ULI Ecommerce App', 'ULI App', 'administrator', 'uli-app-settings', array($this, 'show_admin_options') );
+		add_options_page( 'ULI Login & Signup Form', 'Login & Signup Form', 'administrator', 'uli-app-settings', array($this, 'show_admin_options') );
 
 		add_action( 'admin_init', array($this, 'init_plugin_settings') );
 	}
@@ -26,7 +26,7 @@ class ULIAppAdmin{
 
 		add_settings_section(
             'signup_topic_section', // ID
-            'ULI App SignUp Settings', // Title
+            'ULI SignUp Settings', // Title
             array( $this, 'print_section_info' ), // Callback
             'uli-app-settings' // Page
         );  
@@ -54,7 +54,7 @@ class ULIAppAdmin{
 
 		add_settings_section(
             'signup_status_section', // ID
-            'ULI App Status', // Title
+            'Login & Signup Form Status', // Title
             array( $this, 'print_status_section_info' ), // Callback
             'uli-app-settings' // Page
         );  

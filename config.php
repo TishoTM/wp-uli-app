@@ -7,7 +7,7 @@
 // - profile
 // - password reset url
 // --------------------------------------------
-$uli_app_config['app_url'] = '';
+$uli_app_config['app_url'] = 'https://my.uli.org/';
 
 
 
@@ -15,7 +15,7 @@ $uli_app_config['app_url'] = '';
 // THE URL OF THE ULI API
 // All the data is coming from NetForum via the API
 // --------------------------------------------
-$uli_app_config['api_url'] = '';
+$uli_app_config['api_url'] = 'https://api.uli.org/1.2/';
 
 
 

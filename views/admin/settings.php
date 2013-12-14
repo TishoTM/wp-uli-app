@@ -1,7 +1,7 @@
 <div class="wrap">
 
 	<?php screen_icon(); ?>
-	<h2>ULI Ecommerce App</h2>
+	<h2>ULI Login & Signup Form</h2>
 
 
 	<form method="post" action="options.php">

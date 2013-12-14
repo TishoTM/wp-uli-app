@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: ULI Ecommerce App
+Plugin Name: ULI Login & Signup Form
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Sign In and Sign Up the members to the Application and Mail Newsletter
-Version: 1.0
+Version: 1.1
 Author: Tihomir Mihaylov
 Author URI: http://www.uli.org
 License: ?
@@ -611,7 +611,7 @@ class ULIEcommerceApp {
 		wp_enqueue_script( 'jquery_ui', plugin_dir_url( __FILE__ ) . 'js/jquery-ui-1.10.3.custom.min.js', array( 'jquery' ) );
 		wp_enqueue_script( 'jquery_validate', plugin_dir_url( __FILE__ ) . 'js/jquery.validate.min.js', array( 'jquery' ) );
 
-		wp_enqueue_style( 'jquery_ui_css', plugin_dir_url( __FILE__ ) . 'css/south-street/jquery-ui-1.10.3.custom.min.css' );
+		wp_enqueue_style( 'jquery_ui_css', plugin_dir_url( __FILE__ ) . 'css/south-street/jquery-ui-1.10.3.custom.css' );
 		wp_enqueue_style( 'uli_app_styles', plugin_dir_url( __FILE__ ) . 'css/uli_app_styles.css' );
 		
 		wp_localize_script( 'uli-app-ajax', 'uli_app_ajax',
