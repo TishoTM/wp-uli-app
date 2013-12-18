@@ -255,9 +255,20 @@ jQuery(function($){
 	};
 
 
+	// $.extend(jQuery.validator.messages, {
+	//     equalTo:"The Repeat Password and Password must match"
+	// });
+
 	$.validator.setDefaults({
-		errorElement: 'div'
+		errorElement: 'div',
+		messages: {
+			uli_app_password2: {
+				equalTo:"The Repeat Password and Password must match"
+			}
+		}
 	});
+
+
 
 
 }, 'jQuery');

@@ -28,7 +28,7 @@ if( $uli_app->is_logged() && $user = $uli_app->user() ): ?>
 	<form action="<?php echo  $uli_app->current_url; ?>" id="uli_app_login_form" class="validate_form" method="post" enctype="multipart/form-data">
 
 		<label for="uli_app_email">Email</label>
-		<input type="text" name="uli_app_email" id="uli_app_email" class="mp_textbox" required />
+		<input type="email" name="uli_app_email" id="uli_app_email" class="mp_textbox" required />
 
 		<label for="uli_app_password">Password</label>
 		<input type="password" name="uli_app_password" id="uli_app_password" class="mp_textbox" required />
