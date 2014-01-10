@@ -151,7 +151,7 @@ $user = $uli_app->user();
 	<h3>Thank you for your interest in ULI</h3>
 
 	<p>
-	Before we subscribe you<?php echo $topic['key'] ? ' to receive <b>'.$topic['title'].'</b>' : '' ;?>, please provide some more information to help us connect you with the right ULI people, content and programs: 
+	Before we subscribe you<?php echo (isset($topic['key']) && $topic['key']) ? ' to receive <b>'.$topic['title'].'</b>' : '' ;?>, please provide some more information to help us connect you with the right ULI people, content and programs: 
 	</p>
 
 	
