@@ -1,9 +1,7 @@
 <?php
 
-
-class ULIAppApi {
-
-
+class ULIAppApi
+{
 	// URL of the Application (used for the login)
 	protected $app_url;
 
@@ -19,7 +17,6 @@ class ULIAppApi {
 	public $message;
 	public $code;
 
-
 	function __construct()
 	{
 		global $uli_app_config;
@@ -28,18 +25,15 @@ class ULIAppApi {
 		
 		$this->api_url = $uli_app_config['api_url'];
 
+		if (isset($_COOKIE['uli_ecommerce_app'])) {
 
-		if( isset($_COOKIE['uli_ecommerce_app']) )
-		{
 			$this->session_key = $_COOKIE['uli_ecommerce_app'];
 		}
 		// check for remember cookie
-		else
-		{
-			foreach ($_COOKIE as $name => $value)
-			{
-				if(strpos($name, 'remember_') !== false)
-				{
+		else {
+			foreach ($_COOKIE as $name => $value) {
+
+				if (strpos($name, 'remember_') !== false) {
 					$this->remember_cookie = array(
 						'name' => $name,
 						'value' => $value,
@@ -92,10 +86,9 @@ class ULIAppApi {
 
 		));
 
-		if( ! is_array($result) ) return false;
+		if (! is_array($result)) return false;
 
 		$content = json_decode($result['body'], true);
-
 
 		if( $result['response']['code'] == 202 && isset($content['session']['key']) && isset($content['session']['value']) )
 		{

@@ -1,28 +1,26 @@
 <?php
 
-
-class ULIAppAdmin{
-
+class ULIAppAdmin
+{
 	public $options;
 
 	public $preferences;
 
-
 	function __construct()
 	{
-		add_action( 'admin_menu', array($this, 'plugin_admin_menu') );
+		add_action('admin_menu', array($this, 'plugin_admin_menu'));
 	}
 
 	public function plugin_admin_menu()
 	{
-		add_options_page( 'ULI Login & Signup Form', 'Login & Signup Form', 'administrator', 'uli-app-settings', array($this, 'show_admin_options') );
+		add_options_page('ULI Login & Signup Form', 'Login & Signup Form', 'administrator', 'uli-app-settings', array($this, 'show_admin_options'));
 
-		add_action( 'admin_init', array($this, 'init_plugin_settings') );
+		add_action('admin_init', array($this, 'init_plugin_settings'));
 	}
 
 	public function init_plugin_settings()
 	{
-		register_setting( 'signup_topic_group', 'uli_app' );
+		register_setting('signup_topic_group', 'uli_app');
 
 		add_settings_section(
             'signup_topic_section', // ID
@@ -30,7 +28,6 @@ class ULIAppAdmin{
             array( $this, 'print_section_info' ), // Callback
             'uli-app-settings' // Page
         );  
-
 
         add_settings_field(
             'uli_app_topic_key', // ID
@@ -48,8 +45,6 @@ class ULIAppAdmin{
             'signup_topic_section'
         );
 
-
-
         // --------------------------------------
 
 		add_settings_section(
@@ -59,16 +54,13 @@ class ULIAppAdmin{
             'uli-app-settings' // Page
         );  
 
-
         add_settings_field(
             'uli_app_status', // ID
             'Status', // Title 
             array($this, 'status_callback'),
             'uli-app-settings', // Page
             'signup_status_section' // Section           
-        );      
-
-
+        );
 	}
 
 	public function print_section_info()
@@ -87,18 +79,19 @@ class ULIAppAdmin{
      */
     public function topic_callback()
     {
-      
 	    $html = '<select id="signup_topic" name="uli_app[topic_key]">';  
 	        
 	        $html .= '<option value="0">Select a topic...</option>';  
 	        
-	        foreach ($this->preferences as $preference)
-	        {
+	        foreach ($this->preferences as $preference) {
+
 	        	$key = $preference['value'];
 	        	$title = $preference['option'];
 
 	        	$selected = '';
-	        	if(isset( $this->options['topic_key'] ) && $key == $this->options['topic_key']){ $selected = 'selected'; }
+	        	if (isset($this->options['topic_key']) && $key == $this->options['topic_key']) {
+                    $selected = 'selected';
+                }
 
 	        	$html .= '<option value="'.$key.'" '.$selected.'>'.$title.'</option>';
 	        }
@@ -114,19 +107,23 @@ class ULIAppAdmin{
     public function topic_title_callback()
     {
     	$value = "";
-    	if( isset($this->options['topic_title']) ) $value = $this->options['topic_title'];
+
+    	if (isset($this->options['topic_title'])) {
+            $value = $this->options['topic_title'];   
+        }
         
         $html = '<input name="uli_app[topic_title]" type="hidden" value="'.$value.'" />';
 
         echo $html;
     }
 
-
     public function status_callback()
     {
     	$value = "";    	
 
-    	if( isset($this->options['status']) ) $value = $this->options['status'];
+    	if (isset($this->options['status'])) {
+            $value = $this->options['status'];
+        }
 
     	$selected = '';
 
@@ -136,7 +133,6 @@ class ULIAppAdmin{
     	
     	$selected = $value=="test" ? "selected" : '';
     	$html .= '<option value="test" '.$selected.'>Test</option>';
-
 
     	$selected = $value=="production" ? "selected" : '';
     	$html .= '<option value="production" '.$selected.'>Production</option>';
@@ -152,6 +148,5 @@ class ULIAppAdmin{
 
 		include( plugin_dir_path( __FILE__ ) . 'views/admin/settings.php');
 	}
-
 
 }
